@@ -1,0 +1,8 @@
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/build/data/img/")
+	execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/build/data/img/)
+endif()
+configure_file(data/img/SpaceInvader1.png ${CMAKE_SOURCE_DIR}/build/data/img/ COPYONLY)
+configure_file(data/img/SpaceInvader2.png ${CMAKE_SOURCE_DIR}/build/data/img/ COPYONLY)
+configure_file(data/img/SpaceShip1.png ${CMAKE_SOURCE_DIR}/build/data/img/ COPYONLY)
+configure_file(data/img/SpaceShip2.png ${CMAKE_SOURCE_DIR}/build/data/img/ COPYONLY)
+configure_file(data/img/Item.png ${CMAKE_SOURCE_DIR}/build/data/img/ COPYONLY)
