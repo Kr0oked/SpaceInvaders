@@ -37,13 +37,14 @@ void Rectangle::Draw() const {
         glEnable(GL_TEXTURE_2D);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glBindTexture(GL_TEXTURE_2D, texture);
+        glBindTexture(GL_TEXTURE_2D, (GLuint) texture);
         glBegin(GL_QUADS);
         glTexCoord2f(0.0f, 0.0f); glVertex2f(xLeft, yDown);
         glTexCoord2f(0.0f, 1.0f); glVertex2f(xLeft, yUp);
         glTexCoord2f(1.0f, 1.0f); glVertex2f(xRight, yUp);
         glTexCoord2f(1.0f, 0.0f); glVertex2f(xRight, yDown);
         glEnd();
+        glDisable(GL_BLEND);
         glDisable(GL_TEXTURE_2D);
     }
     else
@@ -56,6 +57,7 @@ void Rectangle::Draw() const {
         glVertex2f(xRight, yUp);
         glVertex2f(xRight, yDown);
         glEnd();
+        glDisable(GL_COLOR_MATERIAL);
     }
 }
 
