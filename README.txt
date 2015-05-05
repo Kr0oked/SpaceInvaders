@@ -31,4 +31,3 @@ apt-get install cmake build-essential freeglut3-dev
 
 Execute the Build Script, output goes to the build directory
 sh build.sh
-
