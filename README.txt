@@ -26,8 +26,9 @@ On Debian:
 
 Install the following packages:
 
-apt-get install cmake build-essential freeglut3-dev 
-	libglew-dev libglm-dev libsoil-dev libxmu-dev libxi-dev
+apt-get install cmake build-essential mesa-common-dev
+	freeglut3-dev libglew-dev libglm-dev libsoil-dev
+	libxmu-dev libxi-dev
 
 Execute the Build Script, output goes to the build directory
 sh build.sh
