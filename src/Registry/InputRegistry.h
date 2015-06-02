@@ -6,7 +6,6 @@
 extern const int KEY_LEFT;
 extern const int KEY_UP;
 extern const int KEY_RIGHT;
-extern const int KEY_DOWN;
 extern const int KEY_SPACEBAR;
 
 class InputRegistry {

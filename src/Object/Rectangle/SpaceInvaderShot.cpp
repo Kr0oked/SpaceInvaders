@@ -16,10 +16,7 @@ bool SpaceInvaderShot::Idle(float elapsedTime) {
     Move(glm::vec2(0.0f, -0.5f) * deltaTime);
     Rectangle::Idle(elapsedTime);
 
-    if (IsOutOfMap()) {
-        return true;
-    }
-    return false;
+    return IsOutOfMap();
 }
 
 int SpaceInvaderShot::Hit(int targetLives) {
@@ -35,6 +32,6 @@ int SpaceInvaderShot::Hit(int targetLives) {
     }
 }
 
-int SpaceInvaderShot::SetPower(int power_) {
+void SpaceInvaderShot::SetPower(int power_) {
     power = power_;
 }

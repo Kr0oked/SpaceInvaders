@@ -16,10 +16,7 @@ bool SpaceShipSpecialShot::Idle(float elapsedTime) {
     Move(glm::vec2(0.0f, 0.8f) * deltaTime);
     Rectangle::Idle(elapsedTime);
 
-    if (IsOutOfMap()) {
-        return true;
-    }
-    return false;
+    return IsOutOfMap();
 }
 
 int SpaceShipSpecialShot::Hit(int targetLives) {
@@ -35,6 +32,6 @@ int SpaceShipSpecialShot::Hit(int targetLives) {
     }
 }
 
-int SpaceShipSpecialShot::SetPower(int power_) {
+void SpaceShipSpecialShot::SetPower(int power_) {
     power = power_;
 }

@@ -4,7 +4,7 @@
 class IShot {
 public:
     virtual int Hit(int) = 0;
-    virtual int SetPower(int) = 0;
+    virtual void SetPower(int) = 0;
 };
 
 #endif //SPACEINVADERS_ISHOT_H

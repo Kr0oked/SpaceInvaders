@@ -1,6 +1,5 @@
 #include <Factory/Factory.h>
 #include <Registry/ObjectRegistry.h>
-#include "Item.h"
 
 Item::Item(glm::vec2 position) : Rectangle() {
     Factory<ITextureLoader> textureFactory = Factory<ITextureLoader>();
@@ -22,10 +21,7 @@ bool Item::Idle(float elapsedTime) {
     Move(glm::vec2(0.0f, -0.3f) * deltaTime);
     Rectangle::Idle(elapsedTime);
 
-    if (IsOutOfMap()) {
-        return true;
-    }
-    return false;
+    return IsOutOfMap();
 }
 
 void Item::Activate() {

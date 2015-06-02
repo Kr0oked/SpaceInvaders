@@ -9,7 +9,7 @@ public:
     SpaceInvaderShot(glm::vec2);
     virtual bool Idle(float);
     virtual int Hit(int);
-    virtual int SetPower(int);
+    virtual void SetPower(int);
 
 private:
     int power;

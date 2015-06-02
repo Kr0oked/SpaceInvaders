@@ -1,6 +1,5 @@
 #include <Factory/Factory.h>
 #include <Registry/ObjectRegistry.h>
-#include "SpaceInvader.h"
 #include "SpaceShipSpecialShot.h"
 
 SpaceInvader::SpaceInvader() : Rectangle(), lives(1), lastAction(0.0f) {

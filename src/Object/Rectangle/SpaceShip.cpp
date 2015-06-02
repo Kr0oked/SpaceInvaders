@@ -1,8 +1,6 @@
 #include <Factory/Factory.h>
 #include <Registry/InputRegistry.h>
 #include <Registry/ObjectRegistry.h>
-#include "SpaceShip.h"
-#include "SpaceShipShot.h"
 #include "SpaceShipSpecialShot.h"
 
 SpaceShip::SpaceShip() : Rectangle(), lastShot(0), specialShot(false), lives(5), immune(0.0f) {
