@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH})
 
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/src/
-)
+  ${CMAKE_CURRENT_SOURCE_DIR}/lib/)
 
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/build/")
 	execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/build/)
@@ -19,6 +19,7 @@ find_package(GLEW REQUIRED)
 find_package(GLM REQUIRED)
 find_package(SOIL REQUIRED)
 
+include(lib/CMakeLists.txt)
 include(src/CMakeLists.txt)
 include(data/CMakeLists.txt)
 

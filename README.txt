@@ -18,6 +18,7 @@ Up Arrow Key: Special Shot
 ESC: Exit Game
 f: Full Screen
 r: Restart Game
+m: Switch Polygon Mode
 
 ------------------------------------------------------------
 -----------------------COMPILE IT YOURSELF------------------

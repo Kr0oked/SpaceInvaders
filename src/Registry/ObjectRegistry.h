@@ -1,54 +1,22 @@
 #ifndef SPACEINVADERS_OBJECTREGISTRY_H
 #define SPACEINVADERS_OBJECTREGISTRY_H
 
-#include <list>
+#include <map>
+#include <string>
+#include <Model/Object.h>
 
-template <class T>
 class ObjectRegistry {
 public:
-    typedef typename std::list<T*> ListObject;
-    typedef typename ListObject::iterator iterator;
-
-    static ObjectRegistry<T>* Instance() {
-        if (!instance) {
-            instance = new ObjectRegistry<T>;
-        }
-        return instance;
-    }
-
-    void Register(T* object) {
-        listObject.push_back(object);
-    }
-
-    void Unregister(T* object) {
-        listObject.remove(object);
-    }
-
-    iterator Unregister(iterator it) {
-        return listObject.erase(it);
-    }
-
-    void UnregisterAll() {
-        listObject.clear();
-    }
-
-    iterator Begin() {
-        return listObject.begin();
-    }
-
-    iterator End() {
-        return listObject.end();
-    }
+    typedef std::map<std::string, object*> MapObject;
+    static ObjectRegistry* Instance();
+    object* GetObject(const std::string&);
 
 private:
     ObjectRegistry() {};
     ObjectRegistry(ObjectRegistry const&) {};
     ObjectRegistry& operator = (ObjectRegistry const&) {};
-    static ObjectRegistry<T>* instance;
-    ListObject listObject;
+    static ObjectRegistry* instance;
+    MapObject mapObject;
 };
-
-template <class T>
-ObjectRegistry<T>* ObjectRegistry<T>::instance = 0;
 
 #endif //SPACEINVADERS_OBJECTREGISTRY_H

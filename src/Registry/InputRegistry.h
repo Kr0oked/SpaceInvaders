@@ -8,6 +8,8 @@ extern const int KEY_UP;
 extern const int KEY_RIGHT;
 extern const int KEY_SPACEBAR;
 
+#include <map>
+
 class InputRegistry {
 public:
     typedef std::map<int, bool> MapKey;

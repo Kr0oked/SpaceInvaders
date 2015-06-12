@@ -1,33 +1,56 @@
-set (SOURCE_FILES
+list (APPEND SOURCE_FILES
     src/mainOpenGL.cpp
     src/Application.h
     src/Application.cpp
+    src/Camera/ICamera.h
+    src/Camera/SceneCamera.cpp
+    src/Camera/SceneCamera.h
+    src/Camera/InterfaceCamera.cpp
+    src/Camera/InterfaceCamera.h
     src/Factory/Factory.h
-    src/Object/IItem.h
-    src/Object/IObject.h
-    src/Object/IShootable.h
-    src/Object/IShot.h
-    src/Object/Rectangle/Rectangle.h
-    src/Object/Rectangle/Rectangle.cpp
-    src/Object/Rectangle/SpaceShip.h
-    src/Object/Rectangle/SpaceShip.cpp
-    src/Object/Rectangle/SpaceInvader.h
-    src/Object/Rectangle/SpaceInvader.cpp
-    src/Object/Rectangle/SpaceInvaderShot.h
-    src/Object/Rectangle/SpaceInvaderShot.cpp
-    src/Object/Rectangle/SpaceShipShot.h
-    src/Object/Rectangle/SpaceShipShot.cpp
-    src/Object/Rectangle/SpaceShipSpecialShot.h
-    src/Object/Rectangle/SpaceShipSpecialShot.cpp
-    src/Object/Rectangle/Item.h
-    src/Object/Rectangle/Item.cpp
+    src/Game/IItem.h
+    src/Game/IObject.h
+    src/Game/IShootable.h
+    src/Game/IShot.h
+    src/Game/Object/Rectangle.h
+    src/Game/Object/Rectangle.cpp
+    src/Game/Object/SpaceShip.h
+    src/Game/Object/SpaceShip.cpp
+    src/Game/Object/SpaceInvader.h
+    src/Game/Object/SpaceInvader.cpp
+    src/Game/Object/SpaceInvaderShot.h
+    src/Game/Object/SpaceInvaderShot.cpp
+    src/Game/Object/SpaceShipShot.h
+    src/Game/Object/SpaceShipShot.cpp
+    src/Game/Object/SpaceShipSpecialShot.h
+    src/Game/Object/SpaceShipSpecialShot.cpp
+    src/Game/Object/Item.h
+    src/Game/Object/Item.cpp
+    src/Model/Object.h
+    src/ObjectLoader/ObjectLoader.h
+    src/ObjectLoader/ObjectLoader.cpp
+    src/Registry/GameRegistry.h
     src/Registry/InputRegistry.h
     src/Registry/InputRegistry.cpp
     src/Registry/ObjectRegistry.h
+    src/Registry/ObjectRegistry.cpp
+    src/Renderer/ObjectRenderer.cpp
+    src/Renderer/ObjectRenderer.h
     src/SceneBuilder/ISceneBuilder.h
     src/SceneBuilder/SpaceInvadersSceneBuilder.h
     src/SceneBuilder/SpaceInvadersSceneBuilder.cpp
     src/TextureLoader/ITextureLoader.h
     src/TextureLoader/TextureLoader.h
     src/TextureLoader/TextureLoader.cpp
+    src/Renderer/TextRenderer.cpp
+    src/Renderer/TextRenderer.h
+    src/Model/Text.h
+    src/Game/IInterface.h
+    src/Game/Interface/GameOver.cpp
+    src/Game/Interface/GameOver.h
+    src/Game/Interface/GameWin.h
+    src/Game/Interface/GameWin.cpp
+    src/Game/Background/Background.cpp
+    src/Game/Background/Background.h
+    src/Game/IBackground.h
 )

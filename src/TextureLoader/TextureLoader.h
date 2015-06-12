@@ -9,10 +9,15 @@
 class TextureLoader : public ITextureLoader {
 public:
     typedef std::map<std::string, int> MapTexture;
+    static TextureLoader* Instance();
     virtual int Load(const std::string&);
 
 private:
-    mutable MapTexture mapTexture;
+    TextureLoader() {};
+    TextureLoader(TextureLoader const&) {};
+    TextureLoader& operator = (TextureLoader const&) {};
+    static TextureLoader* instance;
+    MapTexture mapTexture;
 };
 
 #endif //SPACEINVADERS_TEXTURELOADER_H
