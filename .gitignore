@@ -1,17 +1,7 @@
-# Misc.
-*.exe
-*.o
-*.a
-*.zip
-*.tgz
-*.tbz2
-*.gz
-*.bz2
-*~
-
 # CLion Specific
 *.idea
 *.app
 
 # Output
 build/
+cmake-build-*/

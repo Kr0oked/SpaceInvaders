@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.4)
+cmake_minimum_required(VERSION 2.8.12)
 project(SpaceInvaders)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -31,9 +31,7 @@ include_directories(${OPENGL_INCLUDE_DIR}
 add_executable(spaceinvaders ${SOURCE_FILES})
 
 target_link_libraries(spaceinvaders ${EXTRA_LIBS}
-                                    ${OPENGL_LIBRARY}
-                                    ${GLUT_LIBRARY}
-                                    ${GLEW_LIBRARY}
-                                    ${SOIL_LIBRARY})
-
-configure_file(README.txt ${CMAKE_SOURCE_DIR}/build/ COPYONLY)
+                                    ${OPENGL_LIBRARIES}
+                                    ${GLUT_LIBRARIES}
+                                    ${GLEW_LIBRARIES}
+                                    ${SOIL_LIBRARIES})
