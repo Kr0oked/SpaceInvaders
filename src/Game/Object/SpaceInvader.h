@@ -7,14 +7,18 @@
 class SpaceInvader : public Rectangle, public IShootable {
 public:
     SpaceInvader();
-    virtual bool Idle(float);
-    virtual void Draw() const;
-    virtual int GetLives() const;
-    virtual void SetLives(int);
+
+    bool Idle(float) override;
+
+    void Draw() const override;
+
+    int GetLives() const override;
+
+    void SetLives(int) override;
 
 private:
     void Shoot() const;
-    bool animationState;
+
     int lives;
 };
 

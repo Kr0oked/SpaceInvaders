@@ -23,45 +23,43 @@ Application::Application() {
 }
 
 void Application::OnDisplay() const {
-    for (GameRegistry<Rectangle>::iterator it = rectangleRegistry->Begin(); it != rectangleRegistry->End(); ++it) {
+    for (auto it = rectangleRegistry->Begin(); it != rectangleRegistry->End(); ++it) {
         (*it)->Draw();
     }
 
-    for (GameRegistry<SpaceShip>::iterator it = spaceShipRegistry->Begin(); it != spaceShipRegistry->End(); ++it) {
+    for (auto it = spaceShipRegistry->Begin(); it != spaceShipRegistry->End(); ++it) {
         (*it)->Draw();
     }
 
-    for (GameRegistry<SpaceInvader>::iterator it = spaceInvaderRegistry->Begin(); it != spaceInvaderRegistry->End(); ++it) {
+    for (auto it = spaceInvaderRegistry->Begin(); it != spaceInvaderRegistry->End(); ++it) {
         (*it)->Draw();
     }
 
-    for (GameRegistry<SpaceShipShot>::iterator it = spaceShipShotRegistry->Begin(); it != spaceShipShotRegistry->End(); ++it) {
+    for (auto it = spaceShipShotRegistry->Begin(); it != spaceShipShotRegistry->End(); ++it) {
         (*it)->Draw();
     }
 
-    for (GameRegistry<SpaceShipSpecialShot>::iterator it = spaceShipSpecialShotRegistry->Begin(); it != spaceShipSpecialShotRegistry->End(); ++it) {
+    for (auto it = spaceShipSpecialShotRegistry->Begin(); it != spaceShipSpecialShotRegistry->End(); ++it) {
         (*it)->Draw();
     }
 
-    for (GameRegistry<SpaceInvaderShot>::iterator it = spaceInvaderShotRegistry->Begin(); it != spaceInvaderShotRegistry->End(); ++it) {
+    for (auto it = spaceInvaderShotRegistry->Begin(); it != spaceInvaderShotRegistry->End(); ++it) {
         (*it)->Draw();
     }
 
-    for (GameRegistry<Item>::iterator it = itemRegistry->Begin(); it != itemRegistry->End(); ++it) {
+    for (auto it = itemRegistry->Begin(); it != itemRegistry->End(); ++it) {
         (*it)->Draw();
     }
 }
 
 void Application::OnDisplayInterface() const {
-    IInterface* interface;
+    IInterface *interface;
 
     if (spaceInvaderRegistry->Begin() == spaceInvaderRegistry->End()) {
         interface = new GameWin();
-    }
-    else if (spaceShipRegistry->Begin() != spaceShipRegistry->End()) {
+    } else if (spaceShipRegistry->Begin() != spaceShipRegistry->End()) {
         interface = (*spaceShipRegistry->Begin());
-    }
-    else {
+    } else {
         interface = new GameOver();
     }
 
@@ -69,7 +67,7 @@ void Application::OnDisplayInterface() const {
 }
 
 void Application::OnDisplayBackground() const {
-    for (GameRegistry<IBackground>::iterator it = backgroundRegistry->Begin(); it != backgroundRegistry->End(); ++it) {
+    for (auto it = backgroundRegistry->Begin(); it != backgroundRegistry->End(); ++it) {
         (*it)->DrawBackground();
     }
 }
@@ -80,65 +78,58 @@ void Application::OnIdle(float elapsedTime) {
         sceneBuilder->ResetScene();
     }
 
-    for (GameRegistry<Rectangle>::iterator it = rectangleRegistry->Begin(); it != rectangleRegistry->End();) {
+    for (auto it = rectangleRegistry->Begin(); it != rectangleRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = rectangleRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }
 
-    for (GameRegistry<SpaceShip>::iterator it = spaceShipRegistry->Begin(); it != spaceShipRegistry->End();) {
+    for (auto it = spaceShipRegistry->Begin(); it != spaceShipRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = spaceShipRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }
 
-    for (GameRegistry<SpaceInvader>::iterator it = spaceInvaderRegistry->Begin(); it != spaceInvaderRegistry->End();) {
+    for (auto it = spaceInvaderRegistry->Begin(); it != spaceInvaderRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = spaceInvaderRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }
 
-    for (GameRegistry<SpaceShipShot>::iterator it = spaceShipShotRegistry->Begin(); it != spaceShipShotRegistry->End();) {
+    for (auto it = spaceShipShotRegistry->Begin(); it != spaceShipShotRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = spaceShipShotRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }
 
-    for (GameRegistry<SpaceShipSpecialShot>::iterator it = spaceShipSpecialShotRegistry->Begin(); it != spaceShipSpecialShotRegistry->End();) {
+    for (auto it = spaceShipSpecialShotRegistry->Begin(); it != spaceShipSpecialShotRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = spaceShipSpecialShotRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }
 
-    for (GameRegistry<SpaceInvaderShot>::iterator it = spaceInvaderShotRegistry->Begin(); it != spaceInvaderShotRegistry->End();) {
+    for (auto it = spaceInvaderShotRegistry->Begin(); it != spaceInvaderShotRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = spaceInvaderShotRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }
 
-    for (GameRegistry<Item>::iterator it = itemRegistry->Begin(); it != itemRegistry->End();) {
+    for (auto it = itemRegistry->Begin(); it != itemRegistry->End();) {
         if ((*it)->Idle(elapsedTime)) {
             it = itemRegistry->Unregister(it);
-        }
-        else {
+        } else {
             ++it;
         }
     }

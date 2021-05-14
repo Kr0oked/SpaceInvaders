@@ -1,9 +1,9 @@
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 #include "ObjectLoader.h"
 
-object* ObjectLoader::Load(const std::string& filename, const std::string& materialPath){
-    object* obj = new object;
+object *ObjectLoader::Load(const std::string &filename, const std::string &materialPath) {
+    auto *obj = new object;
 
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
@@ -26,9 +26,9 @@ object* ObjectLoader::Load(const std::string& filename, const std::string& mater
         for (size_t f = 0; f < shapes[i].mesh.indices.size() / 3; f++) {
             printf("  idx[%ld] = %d, %d, %d. mat_id = %d\n",
                    f,
-                   shapes[i].mesh.indices[3*f+0],
-                   shapes[i].mesh.indices[3*f+1],
-                   shapes[i].mesh.indices[3*f+2],
+                   shapes[i].mesh.indices[3 * f + 0],
+                   shapes[i].mesh.indices[3 * f + 1],
+                   shapes[i].mesh.indices[3 * f + 2],
                    shapes[i].mesh.material_ids[f]);
         }
 
@@ -36,9 +36,9 @@ object* ObjectLoader::Load(const std::string& filename, const std::string& mater
         assert((shapes[i].mesh.positions.size() % 3) == 0);
         for (size_t v = 0; v < shapes[i].mesh.positions.size() / 3; v++) {
             printf("  v[%ld] = (%f, %f, %f)\n", v,
-                   shapes[i].mesh.positions[3*v+0],
-                   shapes[i].mesh.positions[3*v+1],
-                   shapes[i].mesh.positions[3*v+2]);
+                   shapes[i].mesh.positions[3 * v + 0],
+                   shapes[i].mesh.positions[3 * v + 1],
+                   shapes[i].mesh.positions[3 * v + 2]);
         }
     }
 

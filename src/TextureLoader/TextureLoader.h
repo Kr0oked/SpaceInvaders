@@ -9,14 +9,18 @@
 class TextureLoader : public ITextureLoader {
 public:
     typedef std::map<std::string, int> MapTexture;
-    static TextureLoader* Instance();
-    virtual int Load(const std::string&);
+
+    static TextureLoader *Instance();
+
+    unsigned int Load(const std::string &) override;
 
 private:
-    TextureLoader() {};
-    TextureLoader(TextureLoader const&) {};
-    TextureLoader& operator = (TextureLoader const&) {};
-    static TextureLoader* instance;
+    TextureLoader() = default;;
+
+    TextureLoader(TextureLoader const &) {};
+
+    void operator=(TextureLoader const &) {};
+    static TextureLoader *instance;
     MapTexture mapTexture;
 };
 

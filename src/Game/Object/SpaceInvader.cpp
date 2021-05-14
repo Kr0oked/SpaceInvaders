@@ -5,7 +5,7 @@
 #include <Renderer/ObjectRenderer.h>
 #include "SpaceShipSpecialShot.h"
 
-SpaceInvader::SpaceInvader() : Rectangle(), lives(1), animationState(true) {
+SpaceInvader::SpaceInvader() : Rectangle(), lives(1) {
     SetSurface(0.0f, 1.0f, 0.0f, 1.0f);
     SetWidth(0.11f);
     SetHeight(0.02f);
@@ -13,16 +13,16 @@ SpaceInvader::SpaceInvader() : Rectangle(), lives(1), animationState(true) {
 }
 
 bool SpaceInvader::Idle(float elapsedTime) {
-    GameRegistry<SpaceShipShot>* shotRegistry = GameRegistry<SpaceShipShot>::Instance();
-    for (GameRegistry<SpaceShipShot>::iterator it = shotRegistry->Begin(); it != shotRegistry->End(); ++it) {
+    GameRegistry<SpaceShipShot> *shotRegistry = GameRegistry<SpaceShipShot>::Instance();
+    for (auto it = shotRegistry->Begin(); it != shotRegistry->End(); ++it) {
         if ((*it)->Intersect(this)) {
             SetLives((*it)->Hit(GetLives()));
             break;
         }
     }
 
-    GameRegistry<SpaceShipSpecialShot>* spShotRegistry = GameRegistry<SpaceShipSpecialShot>::Instance();
-    for (GameRegistry<SpaceShipSpecialShot>::iterator it = spShotRegistry->Begin(); it != spShotRegistry->End(); ++it) {
+    GameRegistry<SpaceShipSpecialShot> *spShotRegistry = GameRegistry<SpaceShipSpecialShot>::Instance();
+    for (auto it = spShotRegistry->Begin(); it != spShotRegistry->End(); ++it) {
         if ((*it)->Intersect(this)) {
             SetLives((*it)->Hit(GetLives()));
             break;
@@ -31,14 +31,13 @@ bool SpaceInvader::Idle(float elapsedTime) {
 
     if (GetLives() <= 0) {
         if (rand() % 3 == 0) {
-            Item* item = new Item(GetPosition());
+            Item *item = new Item(GetPosition());
             GameRegistry<Item>::Instance()->Register(item);
         }
         return true;
     }
 
-    if ((int)elapsedTime % 2 == 0 && rand() % 200 == 0)
-    {
+    if ((int) elapsedTime % 2 == 0 && rand() % 200 == 0) {
         Shoot();
     }
 
@@ -47,8 +46,7 @@ bool SpaceInvader::Idle(float elapsedTime) {
 }
 
 void SpaceInvader::Draw() const {
-    object* obj = ObjectRegistry::Instance()->GetObject("SpaceInvader");
-    ObjectRenderer objectRenderer;
+    object *obj = ObjectRegistry::Instance()->GetObject("SpaceInvader");
 
     glPushMatrix();
     glTranslatef(GetPosition().x, GetPosition().y, 0.0f);
@@ -56,7 +54,7 @@ void SpaceInvader::Draw() const {
     glEnable(GL_COLOR_MATERIAL);
     glColor4f(GetRed(), GetGreen(), GetBlue(), GetAlpha());
 
-    objectRenderer.Render(obj);
+    ObjectRenderer::Render(obj);
 
     glDisable(GL_COLOR_MATERIAL);
     glPopMatrix();
@@ -71,6 +69,6 @@ void SpaceInvader::SetLives(int lives_) {
 }
 
 void SpaceInvader::Shoot() const {
-    SpaceInvaderShot* shot = new SpaceInvaderShot(GetPosition());
+    auto *shot = new SpaceInvaderShot(GetPosition());
     GameRegistry<SpaceInvaderShot>::Instance()->Register(shot);
 }

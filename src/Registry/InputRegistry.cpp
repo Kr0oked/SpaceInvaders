@@ -5,9 +5,9 @@ const int KEY_UP = 1101;
 const int KEY_RIGHT = 1102;
 const int KEY_SPACEBAR = 32;
 
-InputRegistry* InputRegistry::instance = 0;
+InputRegistry *InputRegistry::instance = nullptr;
 
-InputRegistry* InputRegistry::Instance() {
+InputRegistry *InputRegistry::Instance() {
     if (!instance) {
         instance = new InputRegistry;
     }
@@ -24,6 +24,6 @@ void InputRegistry::UnregisterKey(int key) {
 }
 
 bool InputRegistry::IsKeyRegistered(int key) const {
-    MapKey::const_iterator it = mapKey.find(key);
+    auto it = mapKey.find(key);
     return !(it == mapKey.end()) && (*it).second;
 }

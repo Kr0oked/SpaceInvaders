@@ -13,10 +13,6 @@ void SceneCamera::applyModelViewMatrix() {
     gluLookAt(eye.x, eye.y, eye.z,
               center.x, center.y, center.z,
               up.x, up.y, up.z);
-
-    /*gluLookAt(0.0, -1.5, 0.5,
-              0.0, 1.5, 0.0,
-              0.0, 1.0, 0.0);*/
 }
 
 void SceneCamera::applyProjectionMatrix() {
@@ -31,6 +27,7 @@ void SceneCamera::setScreenWidth(GLint screenWidth_) {
 void SceneCamera::setScreenHeight(GLint screenHeight_) {
     screenHeight = screenHeight_;
 }
+
 void SceneCamera::setEye(glm::vec3 eye_) {
     eye = eye_;
 }

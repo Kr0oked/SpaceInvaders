@@ -5,8 +5,9 @@
 
 class SpaceInvadersSceneBuilder : public ISceneBuilder {
 public:
-    virtual void BuildScene();
-    virtual void ResetScene();
+    void BuildScene() override;
+
+    void ResetScene() override;
 };
 
 #endif //SPACEINVADERS_SPACEINVADERSSCENEBUILDER_H

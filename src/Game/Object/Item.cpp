@@ -10,8 +10,7 @@ Item::Item(glm::vec2 position) : Rectangle() {
 }
 
 bool Item::Idle(float elapsedTime) {
-    if (GetLastTime() == 0.0f)
-    {
+    if (GetLastTime() == 0.0f) {
         Rectangle::Idle(elapsedTime);
     }
 

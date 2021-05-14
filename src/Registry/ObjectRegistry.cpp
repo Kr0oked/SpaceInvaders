@@ -4,9 +4,9 @@
 const std::string OBJECT_PATH = "data/obj/";
 const std::string MATERIAL_PATH = "data/obj";
 
-ObjectRegistry* ObjectRegistry::instance = 0;
+ObjectRegistry *ObjectRegistry::instance = nullptr;
 
-ObjectRegistry* ObjectRegistry::Instance() {
+ObjectRegistry *ObjectRegistry::Instance() {
     if (!instance) {
         instance = new ObjectRegistry;
     }
@@ -14,10 +14,9 @@ ObjectRegistry* ObjectRegistry::Instance() {
     return instance;
 }
 
-object* ObjectRegistry::GetObject(const std::string& key) {
+object *ObjectRegistry::GetObject(const std::string &key) {
     if (mapObject.find(key) == mapObject.end()) {
-        ObjectLoader objectLoader;
-        mapObject[key] = objectLoader.Load(OBJECT_PATH + key + ".obj", MATERIAL_PATH);
+        mapObject[key] = ObjectLoader::Load(OBJECT_PATH + key + ".obj", MATERIAL_PATH);
     }
 
     return mapObject[key];

@@ -4,6 +4,7 @@
 class ISceneBuilder {
 public:
     virtual void BuildScene() = 0;
+
     virtual void ResetScene() = 0;
 };
 

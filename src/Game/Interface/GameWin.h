@@ -5,7 +5,7 @@
 
 class GameWin : public IInterface {
 public:
-    virtual void DrawInterface();
+    void DrawInterface() override;
 };
 
 #endif //SPACEINVADERS_GAMEWIN_H

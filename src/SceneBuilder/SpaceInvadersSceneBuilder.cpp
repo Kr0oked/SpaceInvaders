@@ -10,17 +10,15 @@
 #include "SpaceInvadersSceneBuilder.h"
 
 void SpaceInvadersSceneBuilder::BuildScene() {
-    SpaceShip* spaceShip = new SpaceShip();
+    auto *spaceShip = new SpaceShip();
     spaceShip->SetPosition(glm::vec2(0.0f, -0.5f));
     GameRegistry<SpaceShip>::Instance()->Register(spaceShip);
 
     int row = 1;
-    for (float y = 0; y <= 1.5f; y += 0.5f)
-    {
+    for (float y = 0; y <= 1.5f; y += 0.5f) {
         int lives = 8 - row;
-        for (float x = -0.9f; x <= 0.9f; x += 0.15f)
-        {
-            SpaceInvader* spaceInvader = new SpaceInvader();
+        for (float x = -0.9f; x <= 0.9f; x += 0.15f) {
+            auto *spaceInvader = new SpaceInvader();
             spaceInvader->SetPosition(glm::vec2(x, y));
             spaceInvader->SetLives(lives);
             GameRegistry<SpaceInvader>::Instance()->Register(spaceInvader);
@@ -28,7 +26,7 @@ void SpaceInvadersSceneBuilder::BuildScene() {
         row++;
     }
 
-    Background* background = new Background();
+    auto *background = new Background();
     GameRegistry<IBackground>::Instance()->Register(background);
 }
 

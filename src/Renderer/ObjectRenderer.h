@@ -5,7 +5,7 @@
 
 class ObjectRenderer {
 public:
-    void Render(const object*);
+    static void Render(const object *);
 };
 
 #endif //SPACEINVADERS_OBJECTRENDERER_H

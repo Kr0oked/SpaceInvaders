@@ -6,8 +6,10 @@
 class InterfaceCamera : public ICamera {
 public:
     InterfaceCamera(GLdouble, GLdouble, GLdouble, GLdouble);
-    virtual void applyModelViewMatrix();
-    virtual void applyProjectionMatrix();
+
+    void applyModelViewMatrix() override;
+
+    void applyProjectionMatrix() override;
 
 private:
     GLdouble left;
@@ -15,6 +17,5 @@ private:
     GLdouble bottom;
     GLdouble top;
 };
-
 
 #endif //SPACEINVADERS_INTERFACECAMERA_H

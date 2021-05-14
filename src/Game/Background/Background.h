@@ -6,7 +6,7 @@
 
 class Background : public IBackground {
 public:
-    virtual void DrawBackground() const;
+    void DrawBackground() const override;
 };
 
 #endif //SPACEINVADERS_BACKGROUND_H

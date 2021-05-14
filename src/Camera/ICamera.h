@@ -6,6 +6,7 @@
 class ICamera {
 public:
     virtual void applyModelViewMatrix() = 0;
+
     virtual void applyProjectionMatrix() = 0;
 };
 

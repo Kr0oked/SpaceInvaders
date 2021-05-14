@@ -6,10 +6,13 @@
 
 class SpaceShipShot : public Rectangle, public IShot {
 public:
-    SpaceShipShot(glm::vec2);
-    virtual bool Idle(float);
-    virtual int Hit(int);
-    virtual void SetPower(int);
+    explicit SpaceShipShot(glm::vec2);
+
+    bool Idle(float) override;
+
+    int Hit(int) override;
+
+    void SetPower(int) override;
 
 private:
     int power;

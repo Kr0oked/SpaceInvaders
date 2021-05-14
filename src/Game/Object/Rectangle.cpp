@@ -66,7 +66,7 @@ void Rectangle::SetPosition(glm::vec2 position_) {
     UpdateVertices();
 }
 
-bool Rectangle::Intersect(Rectangle* rect) {
+bool Rectangle::Intersect(Rectangle *rect) const {
     GLfloat xLeft2 = rect->GetXLeft();
     GLfloat xRight2 = rect->GetXRight();
     GLfloat yDown2 = rect->GetYDown();
@@ -76,7 +76,7 @@ bool Rectangle::Intersect(Rectangle* rect) {
                     IsValueInRange(xLeft2, xLeft, xRight);
 
     bool yOverlap = IsValueInRange(yDown, yDown2, yUp2) ||
-            IsValueInRange(yDown2, yDown, yUp);
+                    IsValueInRange(yDown2, yDown, yUp);
 
     return xOverlap && yOverlap;
 }

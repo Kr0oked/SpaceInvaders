@@ -9,7 +9,6 @@ InterfaceCamera::InterfaceCamera(GLdouble left_, GLdouble right_, GLdouble botto
 }
 
 void InterfaceCamera::applyModelViewMatrix() {
-    return;
 }
 
 void InterfaceCamera::applyProjectionMatrix() {

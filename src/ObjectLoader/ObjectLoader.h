@@ -6,7 +6,7 @@
 
 class ObjectLoader {
 public:
-    object* Load(const std::string&, const std::string&);
+    static object *Load(const std::string &, const std::string &);
 };
 
 #endif //SPACEINVADERS_OBJECTLOADER_H

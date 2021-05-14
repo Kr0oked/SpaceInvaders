@@ -8,23 +8,33 @@
 class SpaceShip : public Rectangle, public IInterface, public IShootable {
 public:
     SpaceShip();
-    virtual bool Idle(float);
-    virtual void Draw() const;
-    virtual int GetLives() const;
-    virtual void SetLives(int);
-    virtual void SetPosition(glm::vec2);
-    virtual void DrawInterface();
+
+    bool Idle(float) override;
+
+    void Draw() const override;
+
+    int GetLives() const override;
+
+    void SetLives(int) override;
+
+    void SetPosition(glm::vec2) override;
+
+    void DrawInterface() override;
 
 private:
     void MoveLeft(float);
+
     void MoveRight(float);
+
     void Shoot();
+
     void ShootSpecial();
+
     int lives;
     float lastShot;
     float immune;
     bool specialShot;
-    int texLive;
+    unsigned int texLive;
     float rotation;
 };
 

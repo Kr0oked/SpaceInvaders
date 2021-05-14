@@ -7,8 +7,7 @@ SpaceInvaderShot::SpaceInvaderShot(glm::vec2 position)
 }
 
 bool SpaceInvaderShot::Idle(float elapsedTime) {
-    if (GetLastTime() == 0.0f)
-    {
+    if (GetLastTime() == 0.0f) {
         Rectangle::Idle(elapsedTime);
     }
 
@@ -25,8 +24,7 @@ int SpaceInvaderShot::Hit(int targetLives) {
     if (difference >= 0) {
         power = difference;
         return 0;
-    }
-    else {
+    } else {
         int ret = targetLives - power;
         GameRegistry<SpaceInvaderShot>::Instance()->Unregister(this);
         return ret;

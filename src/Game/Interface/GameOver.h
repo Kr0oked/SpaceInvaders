@@ -5,7 +5,7 @@
 
 class GameOver : public IInterface {
 public:
-    virtual void DrawInterface();
+    void DrawInterface() override;
 };
 
 #endif //SPACEINVADERS_GAMEOVER_H

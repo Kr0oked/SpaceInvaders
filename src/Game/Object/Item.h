@@ -6,9 +6,11 @@
 
 class Item : public Rectangle, public IItem {
 public:
-    Item(glm::vec2);
-    virtual bool Idle(float);
-    virtual void Activate();
+    explicit Item(glm::vec2);
+
+    bool Idle(float) override;
+
+    void Activate() override;
 };
 
 #endif //SPACEINVADERS_ITEM_H

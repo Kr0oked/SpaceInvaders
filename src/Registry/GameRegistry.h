@@ -3,24 +3,24 @@
 
 #include <list>
 
-template <class T>
+template<class T>
 class GameRegistry {
 public:
-    typedef typename std::list<T*> ListObject;
+    typedef typename std::list<T *> ListObject;
     typedef typename ListObject::iterator iterator;
 
-    static GameRegistry<T>* Instance() {
+    static GameRegistry<T> *Instance() {
         if (!instance) {
             instance = new GameRegistry<T>;
         }
         return instance;
     }
 
-    void Register(T* object) {
+    void Register(T *object) {
         listObject.push_back(object);
     }
 
-    void Unregister(T* object) {
+    void Unregister(T *object) {
         listObject.remove(object);
     }
 
@@ -41,14 +41,16 @@ public:
     }
 
 private:
-    GameRegistry() {};
-    GameRegistry(GameRegistry const&) {};
-    GameRegistry & operator = (GameRegistry const&) {};
-    static GameRegistry<T>* instance;
+    GameRegistry() = default;;
+
+    GameRegistry(GameRegistry const &) {};
+
+    GameRegistry &operator=(GameRegistry const &) {};
+    static GameRegistry<T> *instance;
     ListObject listObject;
 };
 
-template <class T>
-GameRegistry<T>* GameRegistry<T>::instance = 0;
+template<class T>
+GameRegistry<T> *GameRegistry<T>::instance = 0;
 
 #endif //SPACEINVADERS_GAMEREGISTRY_H

@@ -13,16 +13,22 @@ extern const int KEY_SPACEBAR;
 class InputRegistry {
 public:
     typedef std::map<int, bool> MapKey;
-    static InputRegistry* Instance();
+
+    static InputRegistry *Instance();
+
     void RegisterKey(int);
+
     void UnregisterKey(int);
+
     bool IsKeyRegistered(int) const;
 
 private:
-    InputRegistry() {};
-    InputRegistry(InputRegistry const&) {};
-    InputRegistry& operator = (InputRegistry const&) {};
-    static InputRegistry* instance;
+    InputRegistry() = default;;
+
+    InputRegistry(InputRegistry const &) {};
+
+    void operator=(InputRegistry const &) {};
+    static InputRegistry *instance;
     MapKey mapKey;
 };
 

@@ -15,13 +15,13 @@
 #include <Game/Object/SpaceShipShot.h>
 #include <Game/Object/SpaceShip.h>
 
-template <class T>
+template<class T>
 class Factory {
 public:
-    virtual T* Create(std::string className) {
+    virtual T *Create(std::string className) {
         if (std::is_base_of<ISceneBuilder, T>::value) {
             if (className == "SpaceInvadersSceneBuilder") {
-                return (T*)new SpaceInvadersSceneBuilder();
+                return (T *) new SpaceInvadersSceneBuilder();
             }
         }
 

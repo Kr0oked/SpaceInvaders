@@ -4,6 +4,7 @@
 class IShot {
 public:
     virtual int Hit(int) = 0;
+
     virtual void SetPower(int) = 0;
 };
 

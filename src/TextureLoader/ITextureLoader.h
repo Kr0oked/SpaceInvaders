@@ -5,7 +5,7 @@
 
 class ITextureLoader {
 public:
-    virtual int Load(const std::string&) = 0;
+    virtual unsigned int Load(const std::string &) = 0;
 };
 
 #endif //SPACEINVADERS_ITEXTURELOADER_H

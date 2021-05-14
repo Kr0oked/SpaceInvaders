@@ -4,6 +4,7 @@
 class IShootable {
 public:
     virtual int GetLives() const = 0;
+
     virtual void SetLives(int) = 0;
 };
 

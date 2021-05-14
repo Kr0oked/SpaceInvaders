@@ -7,9 +7,9 @@
 
 const int ID_ESC = 27;
 
-Application* application = 0;
-SceneCamera* sceneCamera = 0;
-InterfaceCamera* interfaceCamera = 0;
+Application *application = nullptr;
+SceneCamera *sceneCamera = nullptr;
+InterfaceCamera *interfaceCamera = nullptr;
 
 GLint screenX = 0;
 GLint screenY = 0;
@@ -17,7 +17,7 @@ GLint screenWidth = 0;
 GLint screenHeight = 0;
 GLint polygonMode = GL_FILL;
 
-void init(void) {
+void init() {
     // Camera
     sceneCamera = new SceneCamera(screenWidth, screenHeight, 45.0, 0.1, 100.0);
     sceneCamera->setUp(glm::vec3(0.0, 1.0, 0.0));
@@ -35,10 +35,10 @@ void init(void) {
     GLfloat matSpecular[] = {1.0f, 1.0f, 1.0f, 1.0f};
     GLint matShininess[] = {128};
 
-    GLfloat lightAmbient[] = { 0.1f, 0.1f, 0.1f, 1.0f };
-    GLfloat lightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-    GLfloat lightSpecular[] = { 0.5f, 0.5f, 0.5f, 1.0f };
-    GLfloat lightPosition[] = { 0.0f, 30.0f, 60.0f, 0.0f };
+    GLfloat lightAmbient[] = {0.1f, 0.1f, 0.1f, 1.0f};
+    GLfloat lightDiffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
+    GLfloat lightSpecular[] = {0.5f, 0.5f, 0.5f, 1.0f};
+    GLfloat lightPosition[] = {0.0f, 30.0f, 60.0f, 0.0f};
 
     glMaterialfv(GL_FRONT, GL_AMBIENT, matAmbient);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, matDiffuse);
@@ -62,7 +62,7 @@ void init(void) {
     glLineWidth(1.0);
 }
 
-void display(void) {
+void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(screenX, screenY, screenWidth, screenHeight);
 
@@ -115,15 +115,12 @@ void display(void) {
 
 void reshape(int width, int height) {
     /* Scale Viewport to Window Size */
-    if (width >= height)
-    {
+    if (width >= height) {
         screenWidth = height;
         screenHeight = height;
         screenX = int((width - height) / 2 + 0.5);
         screenY = 0;
-    }
-    else
-    {
+    } else {
         screenWidth = width;
         screenHeight = width;
         screenX = 0;
@@ -131,14 +128,14 @@ void reshape(int width, int height) {
     }
 }
 
-void idle(void) {
+void idle() {
     int elapsedTime = glutGet(GLUT_ELAPSED_TIME);
-    float sec = (float)elapsedTime / 1000;
+    float sec = (float) elapsedTime / 1000;
     application->OnIdle(sec);
     glutPostWindowRedisplay(1);
 }
 
-void keyboard(unsigned char key, int x, int y) {
+void keyboard(unsigned char key, __attribute__((unused)) int x, __attribute__((unused)) int y) {
     application->KeyOn(key);
     switch (key) {
         case 'f':
@@ -148,8 +145,7 @@ void keyboard(unsigned char key, int x, int y) {
             if (polygonMode == GL_FILL) {
                 glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
                 polygonMode = GL_LINE;
-            }
-            else {
+            } else {
                 glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
                 polygonMode = GL_FILL;
             }
@@ -161,19 +157,19 @@ void keyboard(unsigned char key, int x, int y) {
     }
 }
 
-void keyboardUp(unsigned char key, int x, int y) {
+void keyboardUp(unsigned char key, __attribute__((unused)) int x, __attribute__((unused)) int y) {
     application->KeyOff(key);
 }
 
-void special(int key, int x, int y) {
+void special(int key, __attribute__((unused)) int x, __attribute__((unused)) int y) {
     application->KeyOn(key + 1000);
 }
 
-void specialUp(int key, int x, int y) {
+void specialUp(int key, __attribute__((unused)) int x, __attribute__((unused)) int y) {
     application->KeyOff(key + 1000);
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowPosition(150, 100);
